@@ -1,5 +1,8 @@
 <?php
 
+use App\Providers\LumenWebSocketsServiceProvider;
+use Illuminate\Broadcasting\BroadcastServiceProvider;
+
 require_once __DIR__.'/../vendor/autoload.php';
 
 (new Laravel\Lumen\Bootstrap\LoadEnvironmentVariables(
@@ -23,7 +26,7 @@ $app = new Laravel\Lumen\Application(
     dirname(__DIR__)
 );
 
-// $app->withFacades();
+$app->withFacades();
 
 // $app->withEloquent();
 
@@ -60,6 +63,8 @@ $app->singleton(
 */
 
 $app->configure('app');
+$app->configure('websockets');
+$app->configure('broadcasting');
 
 /*
 |--------------------------------------------------------------------------
@@ -90,6 +95,8 @@ $app->configure('app');
 | totally optional, so you are not required to uncomment this line.
 |
 */
+$app->register(BroadcastServiceProvider::class);
+$app->register(LumenWebSocketsServiceProvider::class);
 
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
