@@ -6,7 +6,11 @@
     "type": "project",
     "require": {
         "php": "^7.3|^8.0",
-        "laravel/lumen-framework": "^8.0"
+        "beyondcode/laravel-websockets": "^1.12",
+        "illuminate/broadcasting": "^8.48",
+        "illuminate/notifications": "^8.48",
+        "laravel/lumen-framework": "^8.0",
+        "pusher/pusher-php-server": "~3.0"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
